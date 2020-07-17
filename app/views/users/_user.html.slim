@@ -11,6 +11,7 @@
               li.users-item-names__item
                 .users-item-names__ful-name
                   = user.full_name
+                  |  (メンターにのみに表示)
             - if user.slack_account.present?
               li.users-item-names__item
                 .users-item-names__slack
