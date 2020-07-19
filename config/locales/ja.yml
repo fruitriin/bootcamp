@@ -43,6 +43,7 @@ ja:
         kana_first_name: フリガナ（名）
         last_name: 姓
         kana_last_name: フリガナ（姓）
+        display_full_name: 本名表示
         course_id: コース
         description: 自己紹介
         email: Email

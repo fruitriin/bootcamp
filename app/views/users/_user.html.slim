@@ -7,7 +7,7 @@
             = link_to user, class: "users-item__name-link" do
               = user.login_name
           ul.users-item-names
-            - if admin_login?
+            - if admin_login? || params[:display_full_name] == true
               li.users-item-names__item
                 .users-item-names__ful-name
                   = user.full_name

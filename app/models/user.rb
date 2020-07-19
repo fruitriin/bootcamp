@@ -93,6 +93,7 @@ class User < ApplicationRecord
   validates :email,      presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name,  presence: true
+  validates :display_full_name, inclusion: { in: [true, false] }
   validates :nda, presence: true
   validates :password, length: { minimum: 4 }, confirmation: true, if: :password_required?
   validates :twitter_account,
@@ -183,6 +184,7 @@ class User < ApplicationRecord
       job_seeker: true
     )
   }
+  scope :display_full_name, -> { where(display_full_name: true) }
   scope :order_by_counts, -> (order_by, direction) {
     unless order_by.in?(VALID_SORT_COLUMNS) && direction.in?(VALID_SORT_COLUMNS)
       raise ArgumentError, "Invalid argument"

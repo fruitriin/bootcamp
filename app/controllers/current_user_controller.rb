@@ -26,6 +26,7 @@ class CurrentUserController < ApplicationController
         :last_name,
         :kana_first_name,
         :kana_last_name,
+        :display_full_name,
         :email,
         :course_id,
         :description,
