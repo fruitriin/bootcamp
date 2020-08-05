@@ -100,6 +100,7 @@ Rails.application.routes.draw do
     end
   end
   resources :works, except: %i(index)
+  resources :graduation_works
   resources :books, only: %i(index show) do
     resources :borrowings, only: %i(create destroy)
     collection do
