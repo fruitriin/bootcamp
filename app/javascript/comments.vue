@@ -92,8 +92,6 @@ export default {
   },
   mounted: function() {
     TextareaInitializer.initialize('#js-new-comment')
-
-    $("textarea").textareaAutoSize();
     this.setDefaultTextareaSize()
   },
   methods: {

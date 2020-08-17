@@ -6,6 +6,7 @@ import MarkdownItEmoji from 'markdown-it-emoji'
 import MarkdownItTaskLists from 'markdown-it-task-lists'
 import MarkdownItMention from './markdown-it-mention'
 import MarkdownOption from './markdown-it-option'
+import autosize from 'autosize'
 
 export default class {
   static initialize (selector) {
@@ -13,6 +14,8 @@ export default class {
     const token = meta ? meta.content : ''
     const textareas = document.querySelectorAll(selector)
     if (textareas.length === 0) { return null }
+
+    autosize(textareas)
 
     // markdown
     Array.from(textareas).forEach((textarea) => {
@@ -23,6 +26,9 @@ export default class {
         responseKey: 'url',
         csrfToken: token,
         placeholder: '%filenameをアップロード中...',
+        afterPreview: () => {
+          autosize.update(textarea)
+        },
         plugins: [MarkdownItEmoji, MarkdownItMention, MarkdownItTaskLists],
         markdownOptions: MarkdownOption
       })
